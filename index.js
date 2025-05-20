@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(bodyParser.json());
@@ -39,4 +40,8 @@ app.post('/ussd', (req, res) => {
     // Send the response back to the API
     res.set('Content-Type: text/plain');
     res.send(response);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`);
 });
